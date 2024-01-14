@@ -1,0 +1,58 @@
+.tm-main {
+    padding: 10px 50px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    height: auto;
+}
+
+.button-container {
+    text-align: center;
+    margin: 40px 0;
+    display: flex;
+    background-color: #0CC;
+    width: 250px;
+    height: 40px;
+    align-items: center;
+    justify-content: space-around;
+    border-radius: 10px;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px,
+        rgba(1, 153, 153, 0.788) 5px 10px 15px;
+}
+
+.button {
+    outline: 0 !important;
+    border: 0 !important;
+    width: 40px;
+    height: 40px;
+    text-decoration: none;
+    border-radius: 50%;
+    background-color: transparent;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    transition: all ease-in-out 0.3s;
+    cursor: pointer;
+}
+
+.button:hover {
+    transform: translateY(-3px);
+    color: #fff;
+}
+
+.icon {
+    font-size: 20px;
+}
+
+/* ------------------------ */
+.card {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    max-width: 300px;
+    text-align: center;
+}
+
+.title {
+    color: grey;
+    font-size: 18px;
+}

@@ -1,0 +1,60 @@
+input[type="file"]::-webkit-file-upload-button {
+    background-color: #0CC;
+    color: white;
+    padding: 5px 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.image-container {
+    position: relative;
+    display: inline-block;
+}
+
+.image-container img {
+    cursor: pointer;
+}
+
+.del-btn {
+    display: none;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: transparent;
+    color: #0CC;
+    border: none;
+    padding: 5px;
+    cursor: pointer;
+    border-radius: 100%;
+    transition: background-color 0.3s;
+}
+
+.image-container:hover img {
+    filter: blur(2px);
+}
+
+.image-container:hover .del-btn {
+    transition: 0.3s;
+    display: block;
+}
+
+.input-i {
+    display: flex;
+    justify-content: space-between;
+}
+
+.input-i i {
+    position: relative;
+    left: 10px;
+    top: 11px;
+    color: #0CC;
+    cursor: pointer;
+    font-size: 22px;
+    transition: color 0.3s ease;
+}
+
+.input-i i:hover {
+    color: #009e9e;
+}
