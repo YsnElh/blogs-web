@@ -62,12 +62,24 @@ function outputName()
         echo '<div class="card">';
         echo '<img src="./profile_images/' . $_SESSION["profile_img"] . '" alt="' . $_SESSION["user_name"] . '" style="width:100%">';
         echo '<h1>' . $_SESSION["user_name"] . '</h1>';
-        echo '<p class="title">' . $_SESSION["user_email"] . '</p>';
+        echo '<p class="title">' . $_SESSION["user_email"];
+        echo '<img src="./img/loading2.gif" id="loading-img-email" style="display:none" width="20px" alt="loading icon">';
+        if ($_SESSION["email_verified_at"]) {
+            echo ' <i title="Email Verified" class="fas fa-check-circle"></i>';
+        } else {
+            echo ' <i title="Email Not Verified" class="fas fa-exclamation-circle"></i>';
+            echo '<form id="form-verify-email" action="./includes/account/account.inc.php" method="post">';
+            echo '<input type="hidden" name="remb-token" value="' . $_SESSION["remember_token"] . '">';
+            echo '<input type="hidden" name="email" value="' . $_SESSION["user_email"] . '">';
+            echo '<input type="hidden" name="user_id" value="' . $_SESSION["user_id"] . '">';
+            echo '<input type="hidden" name="user_name" value="' . $_SESSION["user_name"] . '">';
+            echo '<input type="hidden" name="vef" value="' . (isset($_SESSION["email_verified_at"]) ? "1" : "0") . '">';
+            echo '<button class="btn btn-outline-info btn-sm m-1">Verify Email</button>';
+            echo '</form>';
+        }
+        echo '</p>';
         echo '<p>@' . $_SESSION["username"] . '</p>';
         echo '</div>';
-        echo '<form action="./includes/account/account.inc.php" method="post">';
-        echo '<button>submit</button>';
-        echo '</form>';
     } else {
         echo "You are not logged in";
     }

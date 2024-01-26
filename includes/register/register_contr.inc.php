@@ -2,51 +2,58 @@
 
 declare(strict_types=1);
 
-function is_inputs_empty(string $name,string $email,string $pwd, string $username){
+function is_inputs_empty(string $name, string $email, string $pwd, string $username)
+{
     if (empty($name) || empty($email) || empty($pwd) || empty($username)) {
         return true;
-    }else{
+    } else {
         return false;
     }
 }
 
-function is_name_invalid(string $name){
+function is_name_invalid(string $name)
+{
     $regex = '/^[a-zA-Z\x{00C0}-\x{00FF}\s]{1,30}$/u';
     return !preg_match($regex, $name) || strlen($name) > 30;
 }
 
-function is_username_invalid(string $username){
+function is_username_invalid(string $username)
+{
     $regex = '/^(?!\.)(?!.*\.$)(?=.*[a-z].*[a-z])[a-z0-9._]{5,20}$/';
     return !preg_match($regex, $username);
 }
 
-function is_username_taken(object $pdo, string $username){
-    if (get_username( $pdo , $username )) {
+function is_username_taken(object $pdo, string $username)
+{
+    if (get_username($pdo, $username)) {
         return true;
-    }else{
+    } else {
         return false;
     }
 }
 
-function is_email_invalid(string $email){
-    
-    if (filter_var($email,FILTER_VALIDATE_EMAIL)) {
+function is_email_invalid(string $email)
+{
+
+    if (filter_var($email, FILTER_VALIDATE_EMAIL)) {
         return false;
-    }else{
+    } else {
         return true;
     }
 }
 
-function is_email_registred(object $pdo,string $email){
-    if (get_email( $pdo , $email )) {
+function is_email_registred(object $pdo, string $email)
+{
+    if (get_email($pdo, $email)) {
         return true;
-    }else{
+    } else {
         return false;
     }
 }
 
-function is_img_invalid($img){
-    if(is_uploaded_file($img['tmp_name'])){
+function is_img_invalid($img)
+{
+    if (is_uploaded_file($img['tmp_name'])) {
         $allowedExtensions = ['jpg', 'jpeg', 'png'];
         $fileExtension = strtolower(pathinfo($img['name'], PATHINFO_EXTENSION));
 
@@ -65,31 +72,33 @@ function is_img_invalid($img){
         }
 
         return false;
-    }else{
-         return true;
+    } else {
+        return true;
     }
 }
 
-function is_input_img_empty($profile_pic){
+function is_input_img_empty($profile_pic)
+{
     if (empty($profile_pic)) {
         return true;
-    }else{
+    } else {
         return false;
     }
 }
 
-function is_password_invalid(string $pwd){
+function is_password_invalid(string $pwd)
+{
 
     $regex = '/^(?=.*[A-Za-z])(?=.*\d).{8,}$/';
     return !preg_match($regex, $pwd);
 }
 
-function create_user(object $pdo,string $name,string $username,string $email,string $pwd, $img){
+function create_user(object $pdo, string $name, string $username, string $email, string $pwd, $img)
+{
     return set_user($pdo, $name, $username, $email, $pwd, handleImage($img, $name));
-    
 }
 
-function handleImage($img, $name):string
+function handleImage($img, $name): string
 {
     $mainDirectory = '../../';
     $imageFolder = $mainDirectory . 'profile_images/';
@@ -99,25 +108,24 @@ function handleImage($img, $name):string
         $defaultImage = $mainDirectory . 'img/profile-img.png';
         $newImagePath = $imageFolder . 'profile-img.png';
         copy($defaultImage, $newImagePath);
-
     }
 
     if (isset($img['tmp_name']) && is_uploaded_file($img['tmp_name'])) {
 
         $imageExtension = pathinfo($img['name'], PATHINFO_EXTENSION);
-        $imageName = strtolower(str_replace(' ', '_', $name)) . '_' . date('Ymd_His') . '_' . uniqid().".". $imageExtension;
+        $imageName = strtolower(str_replace(' ', '_', $name)) . '_' . date('Ymd_His') . '_' . uniqid() . "." . $imageExtension;
         $imagePath = $imageFolder . $imageName;
-        
+
         move_uploaded_file($img['tmp_name'], $imagePath);
 
         return $imageName;
     } else {
         return "profile-img.png";
     }
-
 }
 
-function get_usernames_json(object $pdo){
+function get_usernames_json(object $pdo)
+{
     $res = get_usernames($pdo);
     return json_encode($res);
 }
