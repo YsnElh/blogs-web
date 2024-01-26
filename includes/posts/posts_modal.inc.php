@@ -63,7 +63,7 @@ function get_categsids(object $pdo){
 }
 
 function set_post(object $pdo,string $title,string $description,string $post_img,string $text,string $user_id){
-    $query = "INSERT INTO posts(title,description,post_img,text,user_id,created_at) VALUES(:title,:description,:post_img,:text,:user_id,NOW())";
+    $query = "INSERT INTO posts(title,description,post_img,text,user_id,created_at,updated_at) VALUES(:title,:description,:post_img,:text,:user_id,NOW(),NOW()";
     
     $stmt = $pdo->prepare($query);
     $stmt->bindParam(":title" , $title);

@@ -1,6 +1,5 @@
 <?php
     require_once "./includes/config_session.inc.php";
-    require_once "./includes/config_session.inc.php";
     require_once "./includes/register/register_view.inc.php";
     if (isset($_SESSION['user_id'])) {
         header("Location: /account");

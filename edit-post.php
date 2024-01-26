@@ -1,4 +1,5 @@
 <?php
+    require_once "./includes/config_session.inc.php";
     require_once "./includes/posts/editpost_view.inc.php";
     checkRoute($pdo);
 ?>

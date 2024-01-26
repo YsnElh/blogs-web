@@ -23,7 +23,7 @@ function get_email(object $pdo, string $email){
 }
 
 function set_user(object $pdo,string $name,string $username, string $email,string $pwd, $img){
-    $query = "INSERT INTO users(name,username,email,profile_photo_path,password,created_at) VALUES(:name,:username, :email, :profile_photo_path, :password, NOW())";
+    $query = "INSERT INTO users(name,username,email,profile_photo_path,password,created_at,updated_at) VALUES(:name,:username, :email, :profile_photo_path, :password, NOW(),NOW()";
     $stmt = $pdo->prepare($query);
 
     $options = [

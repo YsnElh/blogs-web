@@ -1,3 +1,4 @@
 profile_images/
 post_imgs/
-# includes/env.inc.php
+includes/env.inc.php
+includes/glob_funcs.inc.php

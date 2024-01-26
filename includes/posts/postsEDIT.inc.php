@@ -159,7 +159,7 @@ if($_SERVER["REQUEST_METHOD"] === "POST"){
         $totalIdsCategsunique = array_unique($combinedCategIDs);
         assign_ids_post_edit($pdo,$post_id,$totalIdsCategsunique);
 
-        header("Location: ../../singlepost?id=$post_id");
+        header("Location: ../../account?search=pending");
         $pdo = null;
         $stmt = null;
         die();

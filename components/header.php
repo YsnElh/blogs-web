@@ -1,6 +1,3 @@
-<?php
-    require_once('./includes/config_session.inc.php');
-?>
 <header class="tm-header" id="tm-header">
     <div class="tm-header-wrapper">
         <button class="navbar-toggler" type="button" aria-label="Toggle navigation">

@@ -1,4 +1,5 @@
 <?php
+    require_once "./includes/config_session.inc.php";
     require_once "includes/singlepost/singlepost_view.inc.php";
 ?>
 <!DOCTYPE html>

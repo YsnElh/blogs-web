@@ -228,7 +228,7 @@
                 success_msg();
             ?>
             <?php 
-                if (isset($_GET['search']) && $_GET['search'] == 'pending') {
+                if (isset($_GET['search']) && $_GET['search'] == 'pending' && return_nbr_Pend_posts() > 0) {
                     echo '<div class="display-6">Wait For moderators to check your pending posts</div>';
                 }
             ?>

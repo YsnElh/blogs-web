@@ -1,10 +1,12 @@
 <?php
     require_once "./includes/config_session.inc.php";
+    require_once "./includes/panel/panel_view.inc.php";
     
-    if ($_SESSION['isadmin'] == 0) {
-        header("Location: /index");
+    if (!isset($_SESSION['user_id']) || $_SESSION['isadmin'] == 0) {
+        header("Location: /account");
         die();
     }
+    handleUrlPage();
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -27,7 +29,10 @@
 
     <div class="container-fluid">
         <main class="tm-main">
-            <h1 class="tm-color-primary">Admin Panel</h1>
+            <?php 
+                print_navbar();
+                print_page_content();
+            ?>
         </main>
     </div>
 
@@ -38,3 +43,4 @@
 </body>
 
 </html>
+<?php unsetSessVars() ?>
