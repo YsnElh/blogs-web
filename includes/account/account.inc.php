@@ -23,14 +23,15 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         require_once 'account_contr.inc.php';
 
         //ERROR HANDLER
-        $errors = [];
+        $error = "";
 
         if (is_inputs_invalid($email, $token, $user_id, $name)) {
-            $errors["empty_inputs"] = "Something Went wrong, try leter!";
+            $error = "Something Went wrong, try leter!";
         }
 
-        if ($errors) {
-            header("Location: ../../account?error=Something went wrong!");
+        if (!empty($error)) {
+            setcookie("error", $error, time() + 60, "/");
+            header("Location: ../../account");
             die();
         }
 
@@ -40,7 +41,8 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         $random_chars = bin2hex(random_bytes(300));
         $verificationLink = APP_URL . "/verify-email?token=$random_chars&uuid=$token";
         $msg = sendVerificationEmail($email, $verificationLink, strtoupper($name));
-        header("Location: ../../account?success=$msg");
+        setcookie("success", $msg, time() + 60, "/");
+        header("Location: ../../account");
         die();
     } catch (PDOException $e) {
         die("Query Faild: " . $e->getMessage());

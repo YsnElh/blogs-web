@@ -1,12 +1,12 @@
 <?php
-    require_once "./includes/config_session.inc.php";
-    require_once "./includes/panel/panel_view.inc.php";
-    
-    if (!isset($_SESSION['user_id']) || $_SESSION['isadmin'] == 0) {
-        header("Location: /account");
-        die();
-    }
-    handleUrlPage();
+require_once "./includes/config_session.inc.php";
+require_once "./includes/panel/panel_view.inc.php";
+
+if (!isset($_SESSION['user_id']) || $_SESSION['isadmin'] == 0) {
+    header("Location: /account");
+    die();
+}
+handleUrlPage();
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -24,14 +24,14 @@
 
 <body>
     <?php
-        include('components/header.php');
+    include('components/header.php');
     ?>
 
     <div class="container-fluid">
         <main class="tm-main">
-            <?php 
-                print_navbar();
-                print_page_content();
+            <?php
+            print_navbar();
+            print_page_content();
             ?>
         </main>
     </div>

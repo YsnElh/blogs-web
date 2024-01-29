@@ -1,5 +1,5 @@
 <?php
-    require_once "./includes/config_session.inc.php";
+require_once "./includes/config_session.inc.php";
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -24,25 +24,12 @@ https://templatemo.com/tm-553-xtra-blog
 
 <body>
     <?php
-        include('components/header.php');
+    include('components/header.php');
     ?>
     <div class="container-fluid">
         <main class="tm-main">
-            <!-- Search form -->
-            <div class="row tm-row">
-                <div class="col-12">
-                    <form method="GET" class="form-inline tm-mb-80 tm-search-form">
-                        <input class="form-control tm-search-input" name="query" type="text" placeholder="Search..."
-                            aria-label="Search">
-                        <button class="tm-search-button" type="submit">
-                            <i class="fas fa-search tm-search-icon" aria-hidden="true"></i>
-                        </button>
-                    </form>
-                </div>
-            </div>
             <div class="row tm-row tm-mb-45">
                 <div class="col-12">
-                    <hr class="tm-hr-primary tm-mb-55">
                     <img src="img/about-01.jpg" alt="Image" class="img-fluid">
                 </div>
             </div>
@@ -173,8 +160,7 @@ https://templatemo.com/tm-553-xtra-blog
             </div>
             <footer class="row tm-row">
                 <div class="col-md-6 col-12 tm-color-gray">
-                    Design: <a rel="nofollow" target="_parent" href="https://templatemo.com"
-                        class="tm-external-link">TemplateMo</a>
+                    Design: <a rel="nofollow" target="_parent" href="https://templatemo.com" class="tm-external-link">TemplateMo</a>
                 </div>
                 <div class="col-md-6 col-12 tm-color-gray tm-copyright">
                     Copyright 2020 Xtra Blog Company Co. Ltd.

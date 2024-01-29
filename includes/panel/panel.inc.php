@@ -1,11 +1,11 @@
 <?php
 
-if($_SERVER["REQUEST_METHOD"] === "POST"){
+if ($_SERVER["REQUEST_METHOD"] === "POST") {
     //Origin request check
     require_once "../env.inc.php";
     $allowedOrigins = array(APP_URL, APP_URL);
     $origin = $_SERVER['HTTP_ORIGIN'];
-    
+
     if (in_array($origin, $allowedOrigins)) {
         header('Access-Control-Allow-Origin: ' . $origin);
     } else {
@@ -16,15 +16,15 @@ if($_SERVER["REQUEST_METHOD"] === "POST"){
         header("Location: ../../panel");
         die();
     }
-    $form_names_allowed = ['update-role','approve-post','del-post','approve-categ','del-categ'];
+    $form_names_allowed = ['update-role', 'approve-post', 'del-post', 'approve-categ', 'del-categ'];
     $form_name = $_POST["form-name"];
-    
+
     if (!in_array($form_name, $form_names_allowed)) {
         header("Location: ../../");
         die();
     }
     require_once '../config_session.inc.php';
-    
+
     if (!isset($_SESSION['user_id']) || $_SESSION['isadmin'] == 0) {
         header("Location: /account");
         die();
@@ -32,27 +32,27 @@ if($_SERVER["REQUEST_METHOD"] === "POST"){
     require_once '../dbh.inc.php';
     require_once 'panel_modal.inc.php';
     require_once 'panel_contr.inc.php';
-    
+
     switch ($form_name) {
         case "update-role":
             $user_id = $_POST['user-id'];
             $role = $_POST['user-role'];
-            $roles_allowed = ['user','admin'];
-            
+            $roles_allowed = ['user', 'admin'];
+
             $errors = [];
-            
-            if(is_inputs_invalid($user_id,$role,$roles_allowed)){
+
+            if (is_inputs_invalid($user_id, $role, $roles_allowed)) {
                 $errors["error"] = "Something went Wrong";
             }
-            
-            if($errors){
+
+            if ($errors) {
                 $_SESSION["register_errors"] = $errors;
                 header("Location: ../../panel");
                 die();
             }
-            
-            change_role($pdo,$user_id,$role);
-            header("Location: ../../panel");
+
+            change_role($pdo, $user_id, $role);
+            header("Location: ../../panel?success=User $user_id is now $role");
             $pdo = null;
             $stmt = null;
             die();
@@ -64,8 +64,8 @@ if($_SERVER["REQUEST_METHOD"] === "POST"){
                 header("Location: ../../panel?manage-posts");
                 die();
             }
-            
-            change_categ($pdo,intval($categ_id),"update");
+
+            change_categ($pdo, intval($categ_id), "update");
             $pdo = null;
             $stmt = null;
             header("Location: ../../panel?manage-posts");
@@ -78,8 +78,8 @@ if($_SERVER["REQUEST_METHOD"] === "POST"){
                 header("Location: ../../panel?manage-posts");
                 die();
             }
-            
-            change_categ($pdo,intval($categ_id),"del");
+
+            change_categ($pdo, intval($categ_id), "del");
             $pdo = null;
             $stmt = null;
             header("Location: ../../panel?manage-posts");
@@ -92,7 +92,7 @@ if($_SERVER["REQUEST_METHOD"] === "POST"){
                 header("Location: ../../panel?manage-posts");
                 die();
             }
-            change_post_adm($pdo,intval($post_id),"update");
+            change_post_adm($pdo, intval($post_id), "update");
             $pdo = null;
             $stmt = null;
             header("Location: ../../panel?manage-posts");
@@ -105,17 +105,14 @@ if($_SERVER["REQUEST_METHOD"] === "POST"){
                 header("Location: ../../panel?manage-posts");
                 die();
             }
-            change_post_adm($pdo,intval($post_id),"del");
+            change_post_adm($pdo, intval($post_id), "del");
             $pdo = null;
             $stmt = null;
             header("Location: ../../panel?manage-posts");
             die();
             break;
     }
-
-
-
-}else{
+} else {
     header("Location: ../../");
     die();
 }

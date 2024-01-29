@@ -178,20 +178,8 @@ ul {
     transition: all 0.3s ease;
 }
 
-.tm-social-link:hover .tm-social-icon.fa-facebook {
-    color: #3b5998;
-}
-
-.tm-social-link:hover .tm-social-icon.fa-twitter {
-    color: #00acee;
-}
-
-.tm-social-link:hover .tm-social-icon.fa-instagram {
-    color: #3f729b;
-}
-
-.tm-social-link:hover .tm-social-icon.fa-linkedin {
-    color: #0e76a8;
+.tm-social-link:hover .tm-social-icon .fa-github {
+    color: #21262d;
 }
 
 .navbar-toggler {
@@ -568,22 +556,6 @@ a:hover figcaption {
 
 .tm-social-links li a i {
     transition: all 0.3s ease;
-}
-
-.tm-social-links li a:hover i.fa-facebook {
-    color: #3b5998;
-}
-
-.tm-social-links li a:hover i.fa-twitter {
-    color: #00acee;
-}
-
-.tm-social-links li a:hover i.fa-youtube {
-    color: #c4302b;
-}
-
-.tm-social-links li a:hover i.fa-instagram {
-    color: #3f729b;
 }
 
 .tm-contact-right {

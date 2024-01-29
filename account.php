@@ -225,7 +225,7 @@ require_once "./includes/account/account_view.inc.php";
             <div><?php outputName() ?></div>
             <?php mini_navbar_posts() ?>
             <?php
-            success_msg();
+            msg_operation();
             ?>
             <?php
             if (isset($_GET['search']) && $_GET['search'] == 'pending' && return_nbr_Pend_posts() > 0) {
@@ -245,6 +245,12 @@ require_once "./includes/account/account_view.inc.php";
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"></script>
     <script src="js/main.js"></script>
     <script>
+        function showMsg(typemsg, msg) {
+            let currentURL = window.location.href;
+            let newURL = currentURL + (currentURL.includes('?') ? '&' : '?') + `${typemsg}=${msg}`;
+            window.location.href = newURL;
+        }
+
         $(document).ready(function() {
             $("#form-verify-email").submit(function(event) {
                 event.preventDefault();
@@ -255,9 +261,11 @@ require_once "./includes/account/account_view.inc.php";
                     data: $(this).serialize(),
                     success: function(response) {
                         $("#loading-img-email").hide();
+                        showMsg('success', 'Email Sent Successfully');
                     },
                     error: function(error) {
                         $("#loading-img-email").hide();
+                        showMsg('error', 'Failed, Try Later');
                     }
                 });
             });

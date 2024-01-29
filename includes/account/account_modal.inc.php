@@ -58,6 +58,7 @@ function set_isarchived(object $pdo, int $post_id, int $isArchived, int $user_id
     }
 }
 
+
 function set_sent_vef(object $pdo, string $user_id)
 {
     $query = "UPDATE users SET verification_sent_at = NOW() WHERE id = :userid";

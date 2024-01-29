@@ -12,9 +12,22 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         header('HTTP/1.1 403 Forbidden');
         die();
     }
-    //if (isset($_POST['csrf-token']) && ($_POST['csrf-token'] === $_SESSION['csrf_token'])) {
 
-    $csrftoken = $_POST['csrf-token'];
+    require_once '../config_session.inc.php';
+
+
+    //token Handle
+
+    // if (!isset($_POST['_token'], $_SESSION['_token']) || $_POST['_token'] !== $_SESSION['_token']) {
+    //     die('Access Forbidden - Token Mismatch or not set');
+    // }
+    // if (
+    //     time() >= $_SESSION["token-expire"]
+    // ) {
+    //     die('Token expired, Reload the form');
+    // }
+    // unset($_SESSION['_token'], $_SESSION["token-expire"]);
+
     $name = $_POST["name"];
     $email = $_POST["email"];
     $username = $_POST["username"];
@@ -73,13 +86,6 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
             }
         }
 
-        require_once '../config_session.inc.php';
-
-        // if (isset($csrftoken) && ($csrftoken != $_SESSION['csrf_token'])) {
-        //     $errors["csrf_error"] = "CSRF token match failed!";   
-        // }
-        // unset($_SESSION['csrf_token']);
-
         if ($errors) {
             $_SESSION["register_errors"] = $errors;
             $registerData = [
@@ -114,7 +120,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
         $_SESSION['last_regeneration'] = time();
 
-        header("Location: ../../account?register=success");
+        header("Location: ../../account?success=SignUp Success!");
         $pdo = null;
         $stmt = null;
         die();

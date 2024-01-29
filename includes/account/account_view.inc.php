@@ -24,13 +24,12 @@ function sendVerificationEmail($to, $verificationLink)
     mail($to, $subject, $message, $headers);
 }
 
-
-function success_msg()
+function msg_operation()
 {
-    if (isset($_GET['login']) && $_GET['login'] === "success") {
-        echo '<div class="alert alert-success" role="alert">Login Success!</div>';
-    } else if (isset($_GET['register']) && $_GET['register'] === "success") {
-        echo '<div class="alert alert-success alert-msg" role="alert">Sign Up Success!</div>';
+    if (isset($_GET['success']) && !empty($_GET['success'])) {
+        echo '<div class="alert alert-success" role="alert">' . $_GET['success'] . '</div>';
+    } else if (isset($_GET['error']) && !empty($_GET['error'])) {
+        echo '<div class="alert alert-danger alert-msg" role="alert">' . $_GET['error'] . '</div>';
     }
 }
 
@@ -65,9 +64,9 @@ function outputName()
         echo '<p class="title">' . $_SESSION["user_email"];
         echo '<img src="./img/loading2.gif" id="loading-img-email" style="display:none" width="20px" alt="loading icon">';
         if ($_SESSION["email_verified_at"]) {
-            echo ' <i title="Email Verified" class="fas fa-check-circle"></i>';
+            echo ' <i class="fas fa-check-circle" data-toggle="tooltip" data-placement="top" title="Email Verified"></i>';
         } else {
-            echo ' <i title="Email Not Verified" class="fas fa-exclamation-circle"></i>';
+            echo ' <i class="fas fa-exclamation-circle" data-toggle="tooltip" data-placement="top" title="Email Not Verified"></i>';
             echo '<form id="form-verify-email" action="./includes/account/account.inc.php" method="post">';
             echo '<input type="hidden" name="remb-token" value="' . $_SESSION["remember_token"] . '">';
             echo '<input type="hidden" name="email" value="' . $_SESSION["user_email"] . '">';

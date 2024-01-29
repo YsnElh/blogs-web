@@ -1,10 +1,10 @@
 <?php
-    require_once "./includes/config_session.inc.php";
-    require_once "./includes/register/register_view.inc.php";
-    if (isset($_SESSION['user_id'])) {
-        header("Location: /account");
-        die();
-    }
+require_once "./includes/config_session.inc.php";
+require_once "./includes/register/register_view.inc.php";
+if (isset($_SESSION['user_id'])) {
+    header("Location: /account");
+    die();
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -22,12 +22,12 @@
 
 <body>
     <?php
-        include('components/header.php');
+    include('components/header.php');
     ?>
     <div>
         <main class="tm-main main-register">
             <?php
-                check_register_errors();
+            check_register_errors();
             ?>
             <h1 class="tm-color-primary">SignUp Page</h1>
             <div>
@@ -38,9 +38,9 @@
             <div class="container">
                 <form action="./includes/register/register.inc.php" method="post" enctype="multipart/form-data"
                     class="mb-5 ml-auto mr-0 login-form">
-                    <input type="hidden" name="csrf-token" value="<?php generateCSRFToken() ?>">
+
                     <?php
-                        registeredInputs();
+                    registeredInputs();
                     ?>
 
                     <div class="form-group row mb-4">
