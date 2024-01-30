@@ -24,6 +24,7 @@ require_once './includes/config_session.inc.php';
         <main class="tm-main">
             <?php
             require_once './includes/account/accountVerfEmail_view.inc.php';
+            include_once('components/footer.php');
             ?>
 
         </main>

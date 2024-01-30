@@ -1,11 +1,11 @@
 <?php
-    require_once "./includes/dbh.inc.php";
-    require_once "./includes/config_session.inc.php";
-    require_once "./includes/login/login_view.inc.php";
-    if (isset($_SESSION['user_id'])) {
-        header("Location: /account");
-        die();
-    }
+require_once "./includes/dbh.inc.php";
+require_once "./includes/config_session.inc.php";
+require_once "./includes/login/login_view.inc.php";
+if (isset($_SESSION['user_id'])) {
+    header("Location: /account");
+    die();
+}
 ?>
 
 <!DOCTYPE html>
@@ -35,12 +35,12 @@
 
 <body>
     <?php
-        include('components/header.php');
+    include('components/header.php');
     ?>
     <div class="container-fluid">
         <main class="tm-main main-login">
             <?php
-                check_login_errors();
+            check_login_errors();
             ?>
             <h1 class="tm-color-primary">Login Page</h1>
             <div>
@@ -78,6 +78,7 @@
                     </p>
                 </form>
             </div>
+            <?php include_once('components/footer.php') ?>
         </main>
     </div>
 

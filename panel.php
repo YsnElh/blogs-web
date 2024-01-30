@@ -32,6 +32,7 @@ handleUrlPage();
             <?php
             print_navbar();
             print_page_content();
+            include_once('components/footer.php');
             ?>
         </main>
     </div>

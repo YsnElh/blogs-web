@@ -1,10 +1,10 @@
 <?php
-    require_once "./includes/config_session.inc.php";
-    require_once "./includes/panel/panelSPP_view.inc.php";
-    if (!isset($_SESSION['user_id']) || $_SESSION['isadmin'] == 0) {
-        header("Location: /account");
-        die();
-    }
+require_once "./includes/config_session.inc.php";
+require_once "./includes/panel/panelSPP_view.inc.php";
+if (!isset($_SESSION['user_id']) || $_SESSION['isadmin'] == 0) {
+    header("Location: /account");
+    die();
+}
 
 ?>
 <!DOCTYPE html>
@@ -31,6 +31,7 @@
     <div class="container-fluid">
         <main class="tm-main">
             <?php print_single_pen_post() ?>
+            <?php include_once('components/footer.php') ?>
         </main>
     </div>
     <script src="js/jquery.min.js"></script>

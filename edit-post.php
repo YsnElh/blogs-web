@@ -1,7 +1,7 @@
 <?php
-    require_once "./includes/config_session.inc.php";
-    require_once "./includes/posts/editpost_view.inc.php";
-    checkRoute($pdo);
+require_once "./includes/config_session.inc.php";
+require_once "./includes/posts/editpost_view.inc.php";
+checkRoute($pdo);
 ?>
 
 <!DOCTYPE html>
@@ -18,30 +18,32 @@
     <link href="css/account.css" rel="stylesheet">
     <link href="css/register.css" rel="stylesheet">
     <style>
-    #img-preview-infos {
-        position: absolute;
-        bottom: -16px;
-        display: none;
-        font-size: 15px;
-    }
+        #img-preview-infos {
+            position: absolute;
+            bottom: -16px;
+            display: none;
+            font-size: 15px;
+        }
 
-    .input-i {
-        align-items: baseline;
-    }
+        .input-i {
+            align-items: baseline;
+        }
     </style>
 </head>
 
 <body>
     <?php
-        include('components/header.php');
+    include('components/header.php');
     ?>
 
     <div class="container-fluid">
         <main class="tm-main main-register">
-            <?php check_register_errors() ?>
-            <?php printCheck() ?>
-            <?php printForm() ?>
-            <h1><?php //echo $_SESSION['_token'] ?></h1>
+            <?php
+            check_register_errors();
+            printCheck();
+            printForm();
+            include_once('components/footer.php');
+            ?>
         </main>
     </div>
 
@@ -51,13 +53,13 @@
     <script src="js/main.js"></script>
     <script src="js/edit-post.js"></script>
     <script>
-    $(function() {
-        $('[data-toggle="tooltip"]').tooltip()
-    })
-    let categsRegistered = <?php categsInitial() ?>;
-    document.addEventListener("DOMContentLoaded", () => {
-        fillDivCategs(categsRegistered);
-    });
+        $(function() {
+            $('[data-toggle="tooltip"]').tooltip()
+        })
+        let categsRegistered = <?php categsInitial() ?>;
+        document.addEventListener("DOMContentLoaded", () => {
+            fillDivCategs(categsRegistered);
+        });
     </script>
 </body>
 

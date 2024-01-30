@@ -6,7 +6,7 @@ require_once 'panel_contr.inc.php';
 
 function handleUrlPage()
 {
-    if (!isset($_GET['manage-posts']) && !isset($_GET['manage-users'])) {
+    if (!isset($_GET['manage-posts']) && !isset($_GET['manage-users']) && !isset($_GET['users-msgs'])) {
         header(("Location: ../../panel?manage-users"));
     }
 }
@@ -43,6 +43,13 @@ function print_navbar()
     }
     echo '<a class="nav-link" href="/panel?manage-posts">Manage Posts</a>';
     echo '</li>';
+    if (isset($_GET['users-msgs'])) {
+        echo '<li class="nav-item active">';
+    } else {
+        echo '<li class="nav-item">';
+    }
+    echo '<a class="nav-link" href="/panel?users-msgs">Users Messages</a>';
+    echo '</li>';
     echo '</ul></div></nav>';
 }
 
@@ -58,6 +65,8 @@ function print_page_content()
         print_pen_posts($pending_posts);
     } elseif (isset($_GET['manage-users'])) {
         print_users($users);
+    } elseif (isset($_GET['users-msgs'])) {
+        print_users_messages();
     }
 }
 function print_users($users_data)
@@ -146,6 +155,11 @@ function print_pen_categs($pen_categs)
     } else {
         echo '<h6>There is no pending categories</h6>';
     }
+}
+
+function print_users_messages()
+{
+    echo '<h2 class="tm-color-primary">Users Messages</h2>';
 }
 
 

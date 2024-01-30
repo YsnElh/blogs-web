@@ -1,6 +1,6 @@
 <?php
-    require_once "./includes/config_session.inc.php";
-    require_once "includes/singlepost/singlepost_view.inc.php";
+require_once "./includes/config_session.inc.php";
+require_once "includes/singlepost/singlepost_view.inc.php";
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -73,13 +73,13 @@
 
 <body>
     <?php
-        include('components/header.php');
+    include('components/header.php');
     ?>
     <div class="container-fluid">
         <main class="tm-main">
-            <?php 
-                check_register_errors(); 
-                check_cmnt_delError();
+            <?php
+            check_register_errors();
+            check_cmnt_delError();
             ?>
             <!-- Search form -->
             <!-- <div class="row tm-row">
@@ -135,15 +135,7 @@
                     </div>
                 </aside>
             </div>
-            <footer class="row tm-row">
-                <div class="col-md-6 col-12 tm-color-gray">
-                    Design: <a rel="nofollow" target="_parent" href="https://templatemo.com"
-                        class="tm-external-link">TemplateMo</a>
-                </div>
-                <div class="col-md-6 col-12 tm-color-gray tm-copyright">
-                    Copyright 2020 Xtra Blog Company Co. Ltd.
-                </div>
-            </footer>
+            <?php include_once('components/footer.php') ?>
         </main>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"

@@ -1,6 +1,6 @@
 <?php
-    require_once "./includes/config_session.inc.php";
-    require_once "includes/posts/posts_view.inc.php";
+require_once "./includes/config_session.inc.php";
+require_once "includes/posts/posts_view.inc.php";
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -18,7 +18,7 @@
 
 <body>
     <?php
-        include('components/header.php');
+    include_once('components/header.php');
     ?>
 
     <div class="container-fluid">
@@ -27,10 +27,8 @@
             <!-- Search form -->
             <div class="row tm-row">
                 <div class="col-12">
-                    <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="GET"
-                        class="form-inline tm-mb-80 tm-search-form">
-                        <input class="form-control tm-search-input" name="search-value" type="text"
-                            value="<?php data_search() ?>" placeholder="Search..." aria-label="Search">
+                    <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="GET" class="form-inline tm-mb-80 tm-search-form">
+                        <input class="form-control tm-search-input" name="search-value" type="text" value="<?php data_search() ?>" placeholder="Search..." aria-label="Search">
                         <input type="hidden" name="page-nr-s" value="1">
                         <button class="tm-search-button" type="submit">
                             <i class="fas fa-search tm-search-icon" aria-hidden="true"></i>
@@ -38,30 +36,21 @@
                     </form>
                 </div>
             </div>
-            <?php 
-                not_found_search();
-                not_found_posts();
+            <?php
+            not_found_search();
+            not_found_posts();
             ?>
             <div class="row tm-row">
                 <?php
-                    print_posts();
+                print_posts();
                 ?>
             </div>
             <div class="row tm-row tm-mt-100 tm-mb-75">
                 <?php
-                    paginate_btns();
+                paginate_btns();
                 ?>
             </div>
-            <footer class="row tm-row">
-                <hr class="col-12">
-                <div class="col-md-6 col-12 tm-color-gray">
-                    Design: <a rel="nofollow" target="_parent" href="https://templatemo.com"
-                        class="tm-external-link">TemplateMo</a>
-                </div>
-                <div class="col-md-6 col-12 tm-color-gray tm-copyright">
-                    Copyright 2020 Xtra Blog Company Co. Ltd.
-                </div>
-            </footer>
+            <?php include_once('components/footer.php') ?>
         </main>
     </div>
     <script src="js/jquery.min.js"></script>

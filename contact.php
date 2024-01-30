@@ -109,14 +109,7 @@ require_once "./includes/contact/contact_view.inc.php";
                     </p>
                 </div>
             </div>
-            <footer class="row tm-row">
-                <div class="col-md-6 col-12 tm-color-gray">
-                    <a rel="nofollow" target="_parent" href="/" class="tm-external-link">Blogs Web</a>
-                </div>
-                <div class="col-md-6 col-12 tm-color-gray tm-copyright">
-                    Copyright 2020 Xtra Blog Company Co. Ltd.
-                </div>
-            </footer>
+            <?php include_once('components/footer.php') ?>
         </main>
     </div>
     <script src="js/jquery.min.js"></script>
