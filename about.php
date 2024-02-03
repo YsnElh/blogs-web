@@ -30,7 +30,7 @@ https://templatemo.com/tm-553-xtra-blog
         <main class="tm-main">
             <div class="row tm-row tm-mb-45">
                 <div class="col-12">
-                    <img src="img/about-01.jpg" alt="Image" class="img-fluid">
+                    <img src="img/img-about.jpg" alt="Image" class="img-fluid">
                 </div>
             </div>
             <div class="row tm-row tm-mb-40">
@@ -38,24 +38,34 @@ https://templatemo.com/tm-553-xtra-blog
                     <div class="mb-4">
                         <h2 class="pt-2 tm-mb-40 tm-color-primary tm-post-title">About this xtra blog</h2>
                         <p>
-                            You can immediately download
-                            <a rel="nofollow" href="https://templatemo.com/tm-553-xtra-blog" target="_blank">Xtra Blog
-                                Template</a>
-                            from TemplateMo website for 100% free of charge. Etiam vehicula, tortor ac eleifend
-                            tincidunt, diam neque pellentesque ipsum,
-                            a geugiat eros mauris eget lorem. Quisque in
-                            bibendum elit, in egestas turpis. Vestibulum ornare sollicitudin congue. Aliquam lorem mi,
-                            maximus at iaculis ut, viverra vel
-                            mauris. Duis congue luctus metus, sodales tincidunt lectus fringilla ut. Nunc tempus at
-                            magna sed vestibulum.
-                        </p>
-                        <p>
-                            Proin et arcu ligula. Praesent quis erat eu est solliditudin tristique ut in arcu. Donec
-                            bibendum ex id ligula semper dictum.
-                            Proin malesuada luctus auctor. Suspendisse ullamcorper, mi vel molestie ornare, arcu magna
-                            euismod ipsum, in
-                            malesuada nulla magna ut enim. Morbi lacinia magna sed sapien auctor, vitae luctus nunc
-                            cursus.
+                            Welcome to our blog, a virtual haven where the essence of mindful living, culinary
+                            exploration, and sustainable choices converge. Here, we embark on a transformative journey,
+                            delving into the intricacies of conscious living. Our commitment lies in curating content
+                            that inspires positive change, fostering a deeper connection with oneself, the world, and
+                            the diverse flavors it offers.
+                            <br>
+                            <br>
+                            In the realm of mindful living, we unravel the secrets to harmonizing with the present
+                            moment, fostering self-awareness, and nurturing overall well-being. Through our culinary
+                            adventures, we traverse the globe, bringing you the richness of international cuisines and
+                            the joy of creating diverse, delicious meals in your own kitchen.
+                            <br>
+                            <br>
+                            Sustainability is at the core of our ethos. We explore eco-friendly practices, offering
+                            insights into how small choices can make a substantial impact on our planet. Our goal is to
+                            guide you towards a lifestyle that is not just fulfilling but also environmentally
+                            conscious.
+                            <br>
+                            <br>
+                            Join us as we navigate the digital age with intention, finding the delicate balance between
+                            technology and daily life. We share strategies for cultivating a healthier relationship with
+                            screens, fostering mindfulness in the digital space.
+                            <br>
+                            <br>
+                            In essence, our blog is a celebration of mindful, flavorful, and sustainable living. It's an
+                            invitation to explore, learn, and evolve—a journey towards a more conscious and fulfilling
+                            lifestyle. Welcome to a community where the pursuit of a mindful, delicious, and sustainable
+                            life is both the path and the destination.
                         </p>
                     </div>
                 </div>
@@ -68,9 +78,9 @@ https://templatemo.com/tm-553-xtra-blog
                         </div>
                         <h2 class="mb-3 tm-color-primary tm-post-title">Background</h2>
                         <p class="mb-0 tm-line-height-short">
-                            Phasellus pulvinar nisl ornare leo porttitor, et vestibulum lorem semper.
-                            Duis risus ex, molestie sit amet magna in,
-                            pharetra pellentesque est. Curabitur elit metus.
+                            Rooted in a passion for conscious living, our blog emerged from the desire to share
+                            transformative insights, fostering a community dedicated to mindfulness, culinary
+                            exploration, sustainability, and beyond.
                         </p>
                     </div>
                 </div>
@@ -81,9 +91,9 @@ https://templatemo.com/tm-553-xtra-blog
                         </div>
                         <h2 class="mb-3 tm-color-primary tm-post-title">Teamwork</h2>
                         <p class="mb-0 tm-line-height-short">
-                            Suspendisse ullamcorper, mi vel molestie ornare, arcu magna euismod ipsum, in malesuada
-                            nulla magna ut enim.
-                            Morbi lacinia magna sed auctor, vitae nunc cursus.
+                            At the heart of our endeavor is a collaborative spirit. Our diverse team, united by a shared
+                            commitment to inspire positive change, collaborates seamlessly to curate content that
+                            resonates with the essence of mindful living and global exploration.
                         </p>
                     </div>
                 </div>
@@ -94,13 +104,15 @@ https://templatemo.com/tm-553-xtra-blog
                         </div>
                         <h2 class="mb-3 tm-color-primary tm-post-title">Our Core Value</h2>
                         <p class="mb-0 tm-line-height-short">
-                            Nunc mi ante, suscipit vel dapibus et, volutpat sit amet ante. In tempor nec sem vitae
-                            varius. Aliquam tincidunt orci sem, et imperdiet massa consectetur nec.
+                            Our core value is simple yet profound: to empower individuals on their journey toward a
+                            conscious lifestyle. We believe in the transformative power of mindful choices, global
+                            flavors, and sustainable practices, guiding our readers to cultivate a life that aligns with
+                            their values and aspirations.
                         </p>
                     </div>
                 </div>
             </div>
-            <div class="row tm-row tm-mb-60">
+            <!-- <div class="row tm-row tm-mb-60">
                 <div class="col-12">
                     <hr class="tm-hr-primary  tm-mb-55">
                 </div>
@@ -157,7 +169,7 @@ https://templatemo.com/tm-553-xtra-blog
                         </div>
                     </div>
                 </div>
-            </div>
+            </div> -->
             <?php include_once('components/footer.php') ?>
         </main>
     </div>

@@ -43,16 +43,16 @@
             </ul>
         </nav>
         <div class="tm-mb-65">
-            <a href="#" class="tm-social-link">
+            <a href="https://github.com/YsnElh" target="_blank" class="tm-social-link">
                 <i class="fab fa-github tm-social-icon"></i>
             </a>
-            <a href="#" class="tm-social-link">
+            <a href="https://www.linkedin.com/in/yassine-elhainouni/" target="_blank" class="tm-social-link">
                 <i class="fab fa-linkedin tm-social-icon"></i>
             </a>
         </div>
         <p class="tm-mb-80 pr-5 text-white">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorem laborum repudiandae modi molestias
-            architecto? Sit explicabo temporibus et quos velit.
+            Explore transformative blogs on mindful living, global flavors, sustainable choices, and more • crafting a
+            conscious lifestyle awaits.
         </p>
     </div>
 </header>

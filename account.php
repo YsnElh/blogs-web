@@ -20,6 +20,11 @@ require_once "./includes/account/account_view.inc.php";
     <link href="css/main.css" rel="stylesheet">
     <link href="css/account.css" rel="stylesheet">
     <link href="css/account2.css" rel="stylesheet">
+    <style>
+        #posts .post-container {
+            width: 300px;
+        }
+    </style>
 </head>
 
 <body>
@@ -41,7 +46,7 @@ require_once "./includes/account/account_view.inc.php";
             }
             ?>
             <div id="posts">
-                <?php print_posts() ?>
+                <?php print_posts_acc() ?>
 
             </div>
             <?php include_once('components/footer.php') ?>

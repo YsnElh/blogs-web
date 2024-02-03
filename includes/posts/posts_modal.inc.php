@@ -87,7 +87,7 @@ function set_post(object $pdo, string $title, string $description, string $post_
 
 function set_categ(object $pdo, string $name)
 {
-    $query = "INSERT INTO categories(name,created_at) VALUES(:name,NOW())";
+    $query = "INSERT INTO categories(name,created_at,updated_at) VALUES(:name,NOW(),NOW())";
     $stmt = $pdo->prepare($query);
     $stmt->bindParam(":name", $name);
     $stmt->execute();
@@ -97,7 +97,6 @@ function set_categ(object $pdo, string $name)
 
 function set_post_categ(object $pdo, $newPostID, $categID)
 {
-
     $query = "INSERT INTO post_categories(post_id ,category_id ) VALUES(:post_id,:categ_id)";
     $stmt = $pdo->prepare($query);
     $stmt->bindParam(":post_id", $newPostID);

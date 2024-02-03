@@ -119,13 +119,14 @@ function mini_navbar_posts()
     echo '</ul></div></nav>';
 }
 
-function print_posts()
+
+function print_posts_acc()
 {
     global $posts;
     if (count($posts) > 0) {
         foreach ($posts as $p) {
             echo '<div class="post-container">';
-            echo '<img src="./post_imgs/' . $p['post_img'] . '" width="300px" alt="Image of the post: ' . $p['title'] . '">';
+            echo '<img src="./post_imgs/' . $p['post_img'] . '" alt="Image of the post: ' . $p['title'] . '">';
             echo '<div class="post-content">';
             echo '<h3><a href="' . (isset($_GET['search']) && in_array($_GET['search'], ['pending', 'archived']) ? '#' : '/singlepost?id=' . $p['id']) . '" class="menu__link">' . $p['title'] . '</a></h3>';
             echo '<div class="buttons-post">';

@@ -15,17 +15,18 @@
     flex-wrap: wrap;
 }
 
-#posts .post-container img {
-    border-radius: 6px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease-in-out;
-}
 
 #posts .post-container {
     position: relative;
     overflow: hidden;
     margin-bottom: 10px;
     cursor: pointer;
+}
+
+#posts .post-container img {
+    border-radius: 6px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease-in-out;
 }
 
 #posts .post-container .post-content {

@@ -90,23 +90,16 @@ require_once "./includes/contact/contact_view.inc.php";
                 </div>
                 <div class="col-lg-5 tm-contact-right">
                     <address class="mb-4 tm-color-gray">
-                        120 Lorem ipsum dolor sit amet,
-                        consectetur adipiscing 10550
+                        120 Adress 10550
                     </address>
                     <span class="d-block">
                         Tel:
-                        <a href="tel:060-070-0980" class="tm-color-gray">060-070-0980</a>
+                        <a href="tel:060-000-0000" class="tm-color-gray">060-000-0000</a>
                     </span>
                     <span class="mb-4 d-block">
                         Email:
-                        <a href="mailto:info@company.com" class="tm-color-gray">info@company.com</a>
+                        <a href="mailto:contact@company.com<" class="tm-color-gray">contact@company.com</a>
                     </span>
-                    <p class="mb-5 tm-line-height-short">
-                        Maecenas eu mi eu dui cursus
-                        consequat non eu metus. Morbi ac
-                        turpis eleifend, commodo purus
-                        eget, commodo mauris.
-                    </p>
                 </div>
             </div>
             <?php include_once('components/footer.php') ?>
