@@ -42,7 +42,7 @@ function print_img()
 {
     global $single_post;
     foreach ($single_post as $post) {
-        echo '<img src="./post_imgs/' . $post['post_img'] . '" width="800px" height="400px" alt="Image of: ' . $post['title'] . ' blog">';
+        echo '<img src="./post_imgs/' . $post['post_img'] . '" width="800px" height="400px" class="img-fluid" alt="Image of: ' . $post['title'] . ' blog">';
     }
 }
 

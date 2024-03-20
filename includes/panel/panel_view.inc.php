@@ -20,12 +20,20 @@ function formatDateTime($dt)
     return $dateTime->format('j F Y, g:i A');
 }
 
+function toSeen()
+{
+    global $pdo;
+    makeAllSeen($pdo);
+}
+
 $users = get_all_users($pdo, "name");
 $pending_posts = get_all_pending_posts($pdo);
 $categs = get_categs($pdo);
+$users_msgs = getUsersMsgs($pdo);
 
 function print_navbar()
 {
+    global $users_msgs;
     echo '<nav class="navbar navbar-expand-sm  navbar-dark mt-2" style="background-color: #0cc;border-radius:6px">';
     echo '<div class="navbar-collapse">';
     echo '<ul class="navbar-nav mr-auto">';
@@ -48,7 +56,7 @@ function print_navbar()
     } else {
         echo '<li class="nav-item">';
     }
-    echo '<a class="nav-link" href="/panel?users-msgs">Users Messages</a>';
+    echo '<a class="nav-link" href="/panel?users-msgs">Users Messages <span class="badge badge-info">' . ($users_msgs['unseen_msgs'] > 0 ? $users_msgs['unseen_msgs'] : "") . '</span></a>';
     echo '</li>';
     echo '</ul></div></nav>';
 }
@@ -58,6 +66,7 @@ function print_page_content()
     global $users;
     global $pending_posts;
     global $categs;
+    global $users_msgs;
     if (isset($_GET['manage-posts'])) {
         echo '<h2 class="tm-color-primary">Manage Pending Categories</h2>';
         print_pen_categs($categs);
@@ -66,7 +75,7 @@ function print_page_content()
     } elseif (isset($_GET['manage-users'])) {
         print_users($users);
     } elseif (isset($_GET['users-msgs'])) {
-        print_users_messages();
+        print_users_messages($users_msgs['users_msgs']);
     }
 }
 function print_users($users_data)
@@ -157,9 +166,29 @@ function print_pen_categs($pen_categs)
     }
 }
 
-function print_users_messages()
+function print_users_messages($msgs)
 {
     echo '<h2 class="tm-color-primary">Users Messages</h2>';
+    if (count($msgs) > 0) {
+        echo '<div class="d-flex flex-wrap">';
+        foreach ($msgs as $msg) {
+            echo '<div class="card m-1 ' . ($msg['seen'] ? "" : "border_highlighted") . '">';
+            echo '<div class="card-body">';
+            echo '<h5 class="card-title">Name: ' . $msg['name'] . '</h5>';
+            echo '<h6>Email: ' . $msg['email'] . '</h6>';
+            echo '<h6>Subject: ' . $msg['subject'] . '</h6>';
+            echo '<p style="font-size:15px">' . $msg['message'] . '</p>';
+            echo '<form action="/includes/panel/panel.inc.php" method="post">';
+            echo '<input type="hidden" name="form-name" value="del-msg">';
+            echo '<input type="hidden" name="id_msg" value="' . $msg['id'] . '">';
+            echo '<button class="btn btn-outline-danger"><i class="fas fa-trash-alt"></i></button>';
+            echo '</form>';
+            echo '</div></div>';
+            //form-name
+        }
+        echo '</div>';
+    }
+    toSeen();
 }
 
 

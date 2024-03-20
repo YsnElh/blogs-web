@@ -16,7 +16,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         header("Location: ../../panel");
         die();
     }
-    $form_names_allowed = ['update-role', 'approve-post', 'del-post', 'approve-categ', 'del-categ'];
+    $form_names_allowed = ['update-role', 'approve-post', 'del-post', 'approve-categ', 'del-categ', 'del-msg'];
     $form_name = $_POST["form-name"];
 
     if (!in_array($form_name, $form_names_allowed)) {
@@ -109,6 +109,19 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
             $pdo = null;
             $stmt = null;
             header("Location: ../../panel?manage-posts");
+            die();
+            break;
+        case "del-msg":
+            $msg_id = $_POST['id_msg'];
+            if (!isset($msg_id) || empty($msg_id) || !is_numeric($msg_id)) {
+                $_SESSION["register_errors"] = "Something went wrong, try later";
+                header("Location: ../../panel?users-msgs");
+                die();
+            }
+            deleteUserMsg($pdo, $msg_id);
+            $pdo = null;
+            $stmt = null;
+            header("Location: ../../panel?users-msgs");
             die();
             break;
     }

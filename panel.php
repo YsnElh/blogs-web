@@ -20,6 +20,11 @@ handleUrlPage();
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <link href="css/main.css" rel="stylesheet">
     <link href="css/account.css" rel="stylesheet">
+    <style>
+        .border_highlighted {
+            border: 3px solid #0CC;
+        }
+    </style>
 </head>
 
 <body>

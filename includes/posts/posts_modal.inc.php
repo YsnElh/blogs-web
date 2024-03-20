@@ -33,6 +33,7 @@ function get_posts_number_search(object $pdo, string $searchValue)
     $result = $stmt->fetch(PDO::FETCH_ASSOC);
     return (int)$result['nbr_posts'];
 }
+
 function get_posts_json(object $pdo)
 {
     $query = "CALL GetPostsJson()";
@@ -41,10 +42,6 @@ function get_posts_json(object $pdo)
     $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
     return $result;
 }
-
-//SQL INJECTION TEST :/
-//$searchValue = "'; DROP TABLE test; --";
-//CRAETE POST
 
 function id_notexist(object $pdo, string $id)
 {
